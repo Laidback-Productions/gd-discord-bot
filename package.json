@@ -1,0 +1,26 @@
+{
+  "name": "GD-DISCORD-BOT",
+  "version": "1.0.0",
+  "description": "<img align=\"right\" src=\"http://gdszeged.hu/sites/default/files/storage/logo_gd.png\" height=\"196\" width=\"196\">",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "devStart": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Laidback-Productions/gd-discord-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Laidback-Productions/gd-discord-bot/issues"
+  },
+  "homepage": "https://github.com/Laidback-Productions/gd-discord-bot#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "discord.js": "^12.4.1",
+    "moment": "^2.29.1"
+  }
+}
