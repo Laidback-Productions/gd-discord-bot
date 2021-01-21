@@ -2,7 +2,7 @@ const { prefix } = require("../config.js");
 
 module.exports = (client, msg) => {
 	let args = msg.content.substring(prefix.length).split(" ");
-	const command = args.shift().toLowerCase();
+	let command = args.shift().toLowerCase();
 
 	if (msg.channel.type == "dm") return;
 	if (!msg.author.bot)
@@ -12,13 +12,13 @@ module.exports = (client, msg) => {
 	if (!client.commands.has(command))
 		return msg.channel
 			.send("Command not found")
-			.then((m) => m.delete({ timeout: 4200 }));
+			.then((m) => m.delete({ timeout: 5000 }));
 
 	try {
 		client.commands.get(command).execute(client, msg, args);
 	} catch (error) {
 		msg.channel
-			.send(`Command not executed or implemented nor found! \nError: ${error}`)
-			.then((m) => m.delete({ timeout: 4200 }));
+			.send(`Command not executed properly. \nError: ${error}`)
+			.then((m) => m.delete({ timeout: 5000 }));
 	}
 };
