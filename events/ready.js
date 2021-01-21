@@ -1,15 +1,16 @@
-const Constants = require("discord.js/src/util/Constants.js");
-Constants.DefaultOptions.ws.properties.$browser = `Discord iOS`;
+const { scheduler } = require("../utils/schedule");
 
 module.exports = (client) => {
-	let users = client.users.cache.size;
+	let users = client.guilds.cache.reduce((a, g) => a + g.memberCount, 0);
 	let servers = client.guilds.cache.size;
 	let channels = client.channels.cache.size;
 
-	client.user.setActivity("Working.", { type: 1, browser: "DISCORD IOS" });
+	client.user.setActivity("Working.", { type: 2, browser: "DISCORD IOS" });
 	client.monitor(`${client.user.username} is ready!`, "ready");
 	client.monitor(
 		`Ready to serve on ${servers} servers, in ${channels} channels, for ${users} users.`,
 		"ready",
 	);
+
+	scheduler(client);
 };
