@@ -1,5 +1,3 @@
-const lessons = {};
+const lessons = [];
 
-module.exports = {
-	lessons,
-};
+module.exports = { lessons };
