@@ -4,8 +4,12 @@
   "description": "<img align=\"right\" src=\"http://gdszeged.hu/sites/default/files/storage/logo_gd.png\" height=\"196\" width=\"196\">",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "devStart": "nodemon index.js"
+    "start": "node .",
+    "devStart": "nodemon ."
+  },
+  "engines": {
+    "node": "12.x",
+    "npm": "*"
   },
   "repository": {
     "type": "git",
@@ -21,13 +25,15 @@
   "dependencies": {
     "chalk": "^4.1.0",
     "cron": "^1.8.2",
-    "discord.js": "^12.4.1",
+    "discord.js": "^12.5.1",
+    "distube": "^2.8.8",
     "dotenv": "^8.2.0",
     "lowdb": "^1.0.0",
     "moment": "^2.29.1",
     "stormdb": "^0.3.1"
   },
   "devDependencies": {
+    "eslint": "^7.20.0",
     "nodemon": "^2.0.7"
   }
 }
