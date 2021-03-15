@@ -2,6 +2,7 @@ const { db, handleGet } = require("../db/database");
 
 module.exports.config = {
 	name: "getLesson",
+	enabled: true,
 	description: "Queries the current lesson",
 	category: "lesson",
 	usage: "getlesson <lessonname|id>",

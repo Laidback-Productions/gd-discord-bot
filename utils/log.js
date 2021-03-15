@@ -32,9 +32,9 @@ module.exports.log = (content, type = "LOG") => {
 			return console.log(message);
 		}
 		default:
-			message = `${timestamp} ${chalk.black.bgYellow(
-				"WARN",
-			)} Wrong type: ${chalk.black.bgYellow(type)} Content was: ${content}`;
+			message = `${timestamp} ${chalk.black.bgYellow("WARN")} Wrong type: ${chalk.black.bgYellow(
+				type,
+			)} Content was: ${content}`;
 
 			return console.log(message);
 	}

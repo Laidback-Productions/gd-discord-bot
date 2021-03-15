@@ -6,7 +6,7 @@ const manager = new ShardingManager("./bot.js", {
 	totalShards: "auto",
 });
 
-manager.spawn();
+manager.spawn(manager.totalShards, "auto");
 manager.on("shardCreate", (shard) => {
 	console.log(
 		`Shard Thread launched with ID: ${shard.id} out of ${manager.totalShards} totalshards.`,
@@ -14,9 +14,7 @@ manager.on("shardCreate", (shard) => {
 });
 
 manager.on("shardResume", (shard, replayed) =>
-	console.log(
-		`Shard ID ${shard.id} resumed connection and replayed ${replayed} events.`,
-	),
+	console.log(`Shard ID ${shard.id} resumed connection and replayed ${replayed} events.`),
 );
 manager.on("shardDeath", (process) => {
 	console.log(`A websocket connection error PID: ${process.pid}`);
@@ -29,7 +27,7 @@ manager.on("shardDisconnect", (event) => {
 	console.log(`Shard disconnected dumping socket.\n ${event}`);
 });
 manager.on("shardReconnect", () => {
-	console.log(`Shard reconnecting`);
+	console.log("Shard reconnecting...");
 });
 manager.on("shardError", (error) => {
 	console.log(`A websocket connection encountered an error.\n${error}`);

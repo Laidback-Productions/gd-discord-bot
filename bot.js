@@ -1,7 +1,7 @@
 const fs = require("fs");
 const { token } = require("./config.js");
 const Discord = require("discord.js");
-const monitor = require("./log");
+const monitor = require("./utils/log");
 
 const client = new Discord.Client();
 
@@ -9,6 +9,7 @@ client.commands = new Discord.Collection();
 client.monitor = monitor.log;
 
 fs.readdir("./commands/", (err, files) => {
+	// Count only JS files instead of folders [...files.filter((f) => f.endsWith(".js"))]
 	client.monitor(`Loading ${files.length} commands`);
 	if (err) return console.error(err);
 	files.forEach((file) => {
@@ -32,9 +33,5 @@ fs.readdir("./events/", (err, files) => {
 		delete require.cache[require.resolve(`./events/${file}`)];
 	});
 });
-
-// client.on("debug", (e) => client.monitor(e, "debug"));
-client.on("error", (e) => client.monitor(e, "error"));
-client.on("warn", (e) => client.monitor(e, "warn"));
 
 client.login(token);

@@ -1,9 +1,4 @@
 {
-  "scheduled_lessons": {
-    "hetfo": [],
-    "kedd": [],
-    "szerda": [],
-    "csütörtök": [],
-    "pentek": []
-  }
+  "scheduled_lessons": [],
+  "updated": 1615821375775
 }

@@ -1,5 +1,6 @@
 module.exports.config = {
 	name: "template",
+	enabled: true,
 	description: "Development Template Command",
 	category: "template",
 	usage: "template",

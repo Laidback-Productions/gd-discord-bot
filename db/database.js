@@ -6,13 +6,7 @@ const db = low(adapter);
 
 const init = async () => {
 	db.defaults({
-		scheduled_lessons: {
-			hetfo: [],
-			kedd: [],
-			szerda: [],
-			csütörtök: [],
-			pentek: [],
-		},
+		scheduled_lessons: [],
 	}).write();
 	console.log("Database initialized.");
 };
@@ -23,9 +17,12 @@ const handleGet = async (req) => {
 	return query;
 };
 const handleAdd = async (data, req) => {
-	db.get(data).add({
-		lesson: req.name,
-	});
+	db.get(data)
+		.push({
+			req,
+		})
+		.write();
+	db.set("updated", Date.now()).write();
 };
 const handleDelete = async (data, req) => {
 	db.get(data).set({
